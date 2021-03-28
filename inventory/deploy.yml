@@ -1,0 +1,5 @@
+---
+- name: deploy application
+  hosts: apacheservers
+  roles:
+    - apache
