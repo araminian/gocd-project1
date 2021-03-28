@@ -4,10 +4,7 @@ source "docker" "application" {
     changes = [
       "EXPOSE 80"
     ]
-  post-processors "docker-tag" {
-    repository = "heiran/simple-packer-project"
-    tag = "1.0"
-  }
+
 }
 
 build {
@@ -17,6 +14,11 @@ build {
     playbook_file = "inventory/deploy.yml"
     host_alias = "web"
     groups = ["apacheservers"]
+  }
+
+  post-processors "docker-tag" {
+    repository = "heiran/simple-packer-project"
+    tag = "1.0"
   }
 
 }
