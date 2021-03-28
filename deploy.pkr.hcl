@@ -10,7 +10,7 @@ build {
   sources = ["source.docker.application"]
 
   provisioner "ansible" {
-    playbook_file = "./deploy.yml"
+    playbook_file = "inventory/deploy.yml"
     host_alias = "web"
     groups = ['apacheservers']
   }
