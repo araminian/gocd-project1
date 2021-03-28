@@ -12,7 +12,7 @@ build {
   provisioner "ansible" {
     playbook_file = "inventory/deploy.yml"
     host_alias = "web"
-    groups = ['apacheservers']
+    groups = ["apacheservers"]
   }
 
 }
