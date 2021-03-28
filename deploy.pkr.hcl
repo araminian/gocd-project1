@@ -15,13 +15,12 @@ build {
     host_alias = "web"
     groups = ["apacheservers"]
   }
-  post-processor {
-    post-processors "docker-tag" {
-      repository = "heiran/simple-packer-project"
-      tag = "1.0"
+  post-processors {
+    post-processor "docker-tag" {
+      repository = "heiran/packer-application"
+      tags = ["0.7"]
     }
   }
-
-}
+  }
 
 
