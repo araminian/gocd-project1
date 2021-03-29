@@ -4,7 +4,6 @@ source "docker" "application" {
     changes = [
       "EXPOSE 80"
     ]
-
 }
 
 build {
@@ -18,9 +17,25 @@ build {
   post-processors {
     post-processor "docker-tag" {
       repository = "heiran/packer-application"
-      tags = ["0.7"]
+      tags = var.image_tag
     }
   }
+  post-processor "docker-push" {
+    login = true
+    login_username = var.docker_user
+    login_password = var.docker_password
   }
 
+}
+# PKR_VAR_docker_user
+variable "docker_user" {
+  type = string
+}
 
+variable "docker_password" {
+  type = string
+}
+
+variable "image_tag" {
+  type = list(string)
+}
