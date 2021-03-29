@@ -19,13 +19,13 @@ build {
       repository = "heiran/packer-application"
       tags = var.image_tag
     }
-  }
-  post-processor "docker-push" {
-    login = true
-    login_username = var.docker_user
-    login_password = var.docker_password
-  }
 
+    post-processor "docker-push" {
+      login = true
+      login_username = var.docker_user
+      login_password = var.docker_password
+    }
+  }
 }
 # PKR_VAR_docker_user
 variable "docker_user" {
